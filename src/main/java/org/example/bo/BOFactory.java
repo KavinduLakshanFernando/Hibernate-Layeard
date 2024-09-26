@@ -1,6 +1,9 @@
 package org.example.bo;
 
 import org.example.bo.customer.IMPL.CustomerBoImpl;
+import org.example.bo.customer.IMPL.ItemBoImpl;
+
+import static com.sun.java.accessibility.util.EventID.ITEM;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -11,7 +14,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        CUSTOMER
+        CUSTOMER,ITEM
     }
 
 
@@ -19,7 +22,8 @@ public class BOFactory {
         switch (types){
             case CUSTOMER:
                 return new CustomerBoImpl();
-
+            case ITEM:
+                return new ItemBoImpl();
             default:
                 return null;
         }

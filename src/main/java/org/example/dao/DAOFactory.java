@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.dao.customer.IMPL.CustomerDAOImpl;
+import org.example.dao.customer.IMPL.ItemDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -13,14 +14,15 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        CUSTOMER
+        CUSTOMER,ITEM
     }
 
     public SuperDAO getDAO(DAOTypes types){
         switch (types) {
             case CUSTOMER:
                 return new CustomerDAOImpl();
-
+            case ITEM:
+                return new ItemDAOImpl();
             default:
                 return null;
         }
